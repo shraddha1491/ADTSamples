@@ -1,0 +1,110 @@
+{
+    "@id": "dtmi:microsoft:Space;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Space",
+    "contents": [
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "id"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "name"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "roomKey"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "friendlyName"
+        },
+        {
+            "@type": "Property",
+            "name": "status",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    {
+                        "name": "inactive",
+                        "displayName": "Inactive",
+                        "enumValue": "inactive"
+                    },
+                    {
+                        "name": "active",
+                        "displayName": "Active",
+                        "enumValue": "active"
+                    }
+                ]
+            },
+            "writable": true
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Space;4",
+            "name": "hasDescendants"
+        },
+        {
+            "@type": "Relationship",
+            "name": "hasAncestors",
+            "target": "dtmi:microsoft:Space;4"
+        },
+        {
+            "@type": "Relationship",
+            "name": "hasChildren",
+            "target": "dtmi:microsoft:Space;4"
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Space;4",
+            "name": "hasParent",
+            "maxMultiplicity": 1
+        },
+        {
+            "@type": "Relationship",
+            "name": "hasSensors",
+            "target": "dtmi:microsoft:Sensor;4"
+        },
+        {
+            "@type": "Relationship",
+            "name": "hasDescendantSensors",
+            "target": "dtmi:microsoft:Sensor;4"
+        },
+        {
+            "@type": "Relationship",
+            "name": "hasDevices",
+            "target": "dtmi:microsoft:Device;4"
+        },
+        {
+            "@type": "Relationship",
+            "name": "hasDescendantDevices",
+            "target": "dtmi:microsoft:Device;4"
+        },
+        {
+            "@type": "Relationship",
+            "name": "hasValues",
+            "target": "dtmi:microsoft:Value;4"
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Capability;4",
+            "name": "hasCapabilities"
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Calendar;4",
+            "name": "hasCalendar",
+            "maxMultiplicity": 1
+        }
+    ]
+}

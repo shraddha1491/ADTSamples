@@ -1,0 +1,14 @@
+{
+    "@id": "dtmi:microsoft:Space:Floor;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Floor",
+    "extends": "dtmi:microsoft:Space;4",
+    "contents": [
+        {
+            "@type": "Property",
+            "schema": "integer",
+            "name": "logicalOrder"
+        }
+    ]
+}

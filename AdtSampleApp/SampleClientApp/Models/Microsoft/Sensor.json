@@ -1,0 +1,59 @@
+﻿{
+    "@id": "dtmi:microsoft:Sensor;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Sensor",
+    "contents": [
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "id"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "port",
+            "description": "Serial port the sensor connects to on the device."
+        },
+        {
+            "@type": "Property",
+            "schema": "integer",
+            "writable": true,
+            "name": "pollRate",
+            "description": "Poll rate for data collection from the sensor."
+        },
+        {
+            "@type": "Property",
+            "schema": "integer",
+            "writable": true,
+            "name": "basicDeltaProcessingRefreshTime"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "manufacturerName"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "brandName"
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Space;4",
+            "name": "isInSpace",
+            "description": "Refers to the space that contains the sensor.",
+            "maxMultiplicity": 1
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Device;4",
+            "name": "hasParentDevices",
+            "description": "Refers to the device the sensor is parented to."
+        }
+    ]
+}

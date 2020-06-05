@@ -42,7 +42,7 @@ namespace SampleClientApp
             {
                 filenameArray[i] = !(modelArray[i].EndsWith(".json") | modelArray[i].EndsWith(".dtdl")) ? $"{modelArray[i]}.json" : modelArray[i];
             }
-            string consoleAppDir = Path.Combine(Directory.GetCurrentDirectory(), @"Models");
+            string consoleAppDir = Path.Combine(Directory.GetCurrentDirectory(), @"Models/Microsoft");
             Log.Alert($"Reading from {consoleAppDir}");
             Log.Alert(string.Format("Submitting models: {0}...", string.Join(", ", filenameArray)));
             try
@@ -725,7 +725,7 @@ namespace SampleClientApp
                 Response<EventRoute> res = await client.GetEventRouteAsync(route_id);
                 if (res != null && res.Value!=null)
                 {
-                    Log.Out($"Route {res.Value.Id} to {res.Value.EndpointId}");
+                    Log.Out($"Route {res.Value.Id} to {res.Value.Id}");
                     Log.Out($"  Filter: {res.Value.Filter}");
                 }
                     
@@ -751,7 +751,7 @@ namespace SampleClientApp
                 AsyncPageable<EventRoute> res = client.GetEventRoutesAsync();
                 await foreach(EventRoute er in res)
                 {
-                    Log.Out($"Route {er.Id} to {er.EndpointId}");
+                    Log.Out($"Route {er.Id} to {er.Id}");
                     Log.Out($"  Filter: {er.Filter}");
                 }
             }
@@ -1039,13 +1039,19 @@ namespace SampleClientApp
 
         }
 
-        /// <summary>
-        /// Get a twin with the specified id in a cycle
-        /// </summary>
-        /// <param name='twin_id0'>
-        /// Id of an existing twin
-        /// </param>
-        public async Task CommandObserveProperties(string[] cmd)
+        public async Task QueryingUsingSDK(string[] cmd)
+        {
+            QueryingUsingSDK qs = new QueryingUsingSDK(client);
+            await qs.InitQuery();
+        }
+
+            /// <summary>
+            /// Get a twin with the specified id in a cycle
+            /// </summary>
+            /// <param name='twin_id0'>
+            /// Id of an existing twin
+            /// </param>
+            public async Task CommandObserveProperties(string[] cmd)
         {
             if (cmd.Length < 3)
             {
@@ -1214,6 +1220,7 @@ namespace SampleClientApp
                 { "DeleteAllTwins", new CliInfo { Command=CommandDeleteAllTwins, Category = CliCategory.SampleTools, Help="Deletes all the twins in your instance" } },
                 { "DeleteAllModels", new CliInfo { Command=CommandDeleteAllModels, Category = CliCategory.SampleTools, Help="Deletes all models in your instance" } },
                 { "LoadModelsFromDirectory", new CliInfo { Command=CommandLoadModels, Category = CliCategory.SampleTools, Help="<directory-path> <extension(json by default)> [nosub]" } },
+                { "CustomQuery", new CliInfo { Command=QueryingUsingSDK, Category = CliCategory.SampleTools, Help="<directory-path> <extension(json by default)> [nosub]" } },
                 { "Exit", new CliInfo { Command=CommandExit, Category = CliCategory.SampleTools, Help="Exits the program" } },
             };
         }

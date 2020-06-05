@@ -1,0 +1,14 @@
+{
+    "@id": "dtmi:microsoft:Sensor:MotionSensor;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Motion Sensor",
+    "extends": "dtmi:microsoft:Sensor;4",
+    "contents": [
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Value:Motion;4",
+            "name": "hasValues"
+        }
+    ]
+}

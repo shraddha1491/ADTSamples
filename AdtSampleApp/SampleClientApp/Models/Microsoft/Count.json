@@ -1,0 +1,27 @@
+﻿{
+    "@id": "dtmi:microsoft:Value:Count;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Count Value",
+    "extends": "dtmi:microsoft:Value;4",
+    "contents": [
+        {
+            "@type": "Property",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "value",
+                        "schema": "double"
+                    },
+                    {
+                        "name": "timestamp",
+                        "schema": "dateTime"
+                    }
+                ]
+            },
+            "writable": true,
+            "name": "count"
+        }
+    ]
+}

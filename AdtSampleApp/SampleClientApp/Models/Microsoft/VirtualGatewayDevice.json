@@ -1,0 +1,50 @@
+{
+    "@id": "dtmi:microsoft:Device:VirtualGatewayDevice;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Virtual Device used for Gateways",
+    "extends": "dtmi:microsoft:Device;4",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "propertyMapping",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "roomKeyPlus",
+                        "schema": "string"
+                    },
+                    {
+                        "name": "dataValue",
+                        "schema": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "pollFrequency"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "keyVaultUsernamePasswordKey"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "authType"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "deviceUrl"
+        }
+    ]
+}

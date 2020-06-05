@@ -1,0 +1,44 @@
+{
+    "@id": "dtmi:microsoft:Space:ConferenceRoom;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Conference Room",
+    "extends": "dtmi:microsoft:Space;4",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "size",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    {
+                        "name": "xs",
+                        "displayName": "Extra Small",
+                        "enumValue": "xs"
+                    },
+                    {
+                        "name": "s",
+                        "displayName": "Small",
+                        "enumValue": "s"
+                    },
+                    {
+                        "name": "m",
+                        "displayName": "Medium",
+                        "enumValue": "m"
+                    },
+                    {
+                        "name": "l",
+                        "displayName": "Large",
+                        "enumValue": "l"
+                    },
+                    {
+                        "name": "xl",
+                        "displayName": "Extra Large",
+                        "enumValue": "xl"
+                    }
+                ]
+            }
+        }
+    ]
+}

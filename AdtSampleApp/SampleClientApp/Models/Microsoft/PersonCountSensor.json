@@ -1,0 +1,14 @@
+﻿{
+    "@id": "dtmi:microsoft:Sensor:PersonCountSensor;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Person Count Sensor",
+    "extends": "dtmi:microsoft:Sensor;4",
+    "contents": [
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Value;4",
+            "name": "hasValues"
+        }
+    ]
+}

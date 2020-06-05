@@ -14,6 +14,8 @@ using Azure.DigitalTwins.Core.Serialization;
 using Azure.DigitalTwins.Core.Models;
 using System.Runtime.InteropServices;
 using Azure;
+using Microsoft.Azure.Services.AppAuthentication;
+using Newtonsoft.Json.Linq;
 
 
 //
@@ -54,7 +56,7 @@ namespace SampleClientApp
                 IConfiguration config = new ConfigurationBuilder()
                     .AddJsonFile("serviceConfig.json", true, true)
                     .Build();
-                clientId = config["clientId"];
+                //clientId = config["clientId"];
                 tenantId = config["tenantId"];
                 adtInstanceUrl = config["instanceUrl"];
             } catch (Exception e)
@@ -68,19 +70,25 @@ namespace SampleClientApp
             Log.Ok("Authenticating...");
             try
             {
-                var credential = new InteractiveBrowserCredential(tenantId, clientId);
+                //var credential = new InteractiveBrowserCredential(tenantId, clientId);
+                var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions() {SharedTokenCacheTenantId = tenantId });
                 client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
+
+
+                //var tokenProvider = new AzureServiceTokenProvider("RunAs=Developer; DeveloperTool=AzureCli");
+                //TokenCredentials tk = new TokenCredentials(await tokenProvider.GetAccessTokenAsync("0b07f429-9f4b-4714-9392-cc5e8e80c8b0"));
+                //var t1 = await tokenProvider.GetAccessTokenAsync("0b07f429-9f4b-4714-9392-cc5e8e80c8b0");
                 // force authentication to happen here
                 // (for some reason this only happens on first call)
                 try
                 {
-                    client.GetDigitalTwin("---");
+                    client.GetDigitalTwin("MilleniumF");
                 }
                 catch (RequestFailedException rex)
                 {
 
                 }
-                catch (Exception e)
+                catch (Exception e) 
                 {
                     Log.Error($"Authentication or client creation error: {e.Message}");
                     Environment.Exit(0);

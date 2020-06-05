@@ -1,0 +1,14 @@
+﻿{
+    "@id": "dtmi:microsoft:Value;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Value",
+    "contents": [
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "id"
+        }
+    ]
+}

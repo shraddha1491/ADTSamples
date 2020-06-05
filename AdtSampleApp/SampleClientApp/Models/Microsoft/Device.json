@@ -1,0 +1,85 @@
+{
+    "@id": "dtmi:microsoft:Device;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Device",
+    "contents": [
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "id"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "name"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "description"
+        },
+        {
+            "@type": "Property",
+            "name": "status",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    {
+                        "name": "provisioned",
+                        "displayName": "Provisioned",
+                        "enumValue": "provisioned"
+                    },
+                    {
+                        "name": "active",
+                        "displayName": "Active",
+                        "enumValue": "active"
+                    },
+                    {
+                        "name": "offline",
+                        "displayName": "Offline",
+                        "enumValue": "offline"
+                    },
+                    {
+                        "name": "disabled",
+                        "displayName": "Disabled",
+                        "enumValue": "disabled"
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "manufacturerName"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "brandName"
+        },
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "hardwareId"
+        },
+        {
+            "@type": "Relationship",
+            "name": "hasSensors",
+            "target": "dtmi:microsoft:Sensor;4"
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Space;4",
+            "name": "isInSpace",
+            "maxMultiplicity": 1
+        }
+    ]
+}

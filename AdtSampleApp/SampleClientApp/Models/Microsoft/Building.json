@@ -1,0 +1,27 @@
+{
+    "@id": "dtmi:microsoft:Space:Building;4",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Building",
+    "extends": "dtmi:microsoft:Space;4",
+    "contents": [
+        {
+            "@type": "Property",
+            "schema": "string",
+            "writable": true,
+            "name": "refBuildingId"
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:Address;4",
+            "name": "hasAddress",
+            "maxMultiplicity": 1
+        },
+        {
+            "@type": "Relationship",
+            "target": "dtmi:microsoft:TimeZone;4",
+            "name": "isInTimezone",
+            "maxMultiplicity": 1
+        }
+    ]
+}
